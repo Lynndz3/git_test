@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>My Document</title>
+    </head>
+    <body>
+        <h1>Yo yo</h1>
+        <p>
+            <strong>Fruit I like:</strong>
+        </p>
+        <ol>
+            <li>apples</li>
+            <li>bananas</li>
+            <li>oranges</li>
+            <li>peaches</li>
+        </ol>
+        <script>
+            /*
+            let maxNumber = parseInt(prompt("Give me a numner to go up to: "));
+            // start counting from 0 to max number
+            for (let i = 1; i <= maxNumber; i++) {
+                if (i % 3 === 0) {
+                    console.log("fizz");
+                }
+                else if (i % 5 === 0) {
+                    console.log("buzz");
+                }
+                else if (i % 5 === 0 && i % 3 === 0) {
+                    console.log("fizzbuzz");
+                }
+                else console.log(i);
+            }
+            */
+
+            let swap = (x, y) => {
+                let temp = x;
+                x = y;
+                y = temp;
+                return x, y;
+            }
+
+            let array = [1, 4, 7, 9, 10, 15, 3, 8];
+            console.log("array before= " + array);
+
+            for (let i = 0; i < array.length - 1; i++) {
+                for (let j = 0; j < array.length; j++)
+                if (array[j] < array[j+1]) {
+                    let temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                }
+            }
+            console.log("array after= " + array);
+            console.log ("third highest number is= " + array[2]);
+
+
+
+            
+            // on multiples of 3, print "fizz"
+            // one multiples of 5, print "buzz"
+
+
+
+            /*
+            let capitalize = (string) => {
+                //lowercase the whole string
+                let lower = string.toLowerCase();
+                //upper case the first letter of the string
+                let firstChar = lower[0].toUpperCase();
+                let newString = lower.slice(1);
+                return firstChar + newString;
+                }
+            console.log(capitalize("iELOOppo"));
+
+            let lastLetter = (string) => {
+                let array = Array.from(string);
+                let last = array.pop();
+                return last;
+            }
+            console.log(lastLetter("yoyow"));
+            */
+        </script>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice HTML & JS</title>
+</head>
+<body>
+    <h1>TITLE OF WEBPAGE</h1>
+    <div id="container">
+        <button onclick="alert('Hello World')">Click Me</button>
+        <button id="btn">Click Me Harder</button>
+        <button id="button">CLICK ME BABY</button>
+    </div>
+    
+    <script>
+        const btn = document.querySelector('#btn');
+        btn.onclick = () => alert("hellow world");
+        
+        const button = document.querySelector('#button');
+        button.addEventListener('click', () => {
+            alert("Hello World!");
+        });
+        button.addEventListener('click', function (e) {
+            console.log(e.target.style.background = 'blue');
+        });
+        
+        
+        //define variable for manipulating the container
+        const container = document.querySelector('#container');
+
+        //create variable to store a new element in the div
+        //so that you can manipulate the content before putting it on page
+        const content = document.createElement('div');
+        //adds a new class called "content" within content variable
+        content.classList.add('stuff');
+        //adds text content within content variable (associated with new class above)
+        content.textContent = 'This is glorious text-content';
+
+        //add as child into container
+        container.appendChild(content);
+
+        const para = document.createElement('p');
+        para.textContent = "Hey I'm red!";
+        para.style.color = 'red';
+
+        container.appendChild(para);
+
+        const h3 = document.createElement('h3');
+        h3.textContent = "I'm a blue h3";
+        h3.style.color = 'blue';
+
+        container.appendChild(h3);
+
+        const div = document.createElement('div');
+        div.classList.add('pink');
+        div.style.height = '200px';
+        div.style.borderColor = 'black';
+        div.style.backgroundColor = 'pink';
+        div.setAttribute('h1', "I'm in a div");
+        
+        const h1 = document.createElement('h1');
+        h1.textContent = "I'm in a div"
+        const p = document.createElement('p');
+        p.textContent = "ME TOO";
+        
+        //const divContainer = document.querySelector('.pink');
+        div.appendChild(h1);
+        div.appendChild(p);
+        
+        
+        container.appendChild(div);
+
+    </script>
+</body>
+</html>

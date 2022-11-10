@@ -1,3 +1,2 @@
-# git_test
+# Practice with git and front-end!
 First repo!
-Hello Odin!
