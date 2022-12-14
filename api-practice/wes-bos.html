@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // const lynnPromise = fetch('https://api.github.com/users/lynndz3');
+        // const wesPromise = fetch('https://api.github.com/users/wesbos');
+        // Promise.all([lynnPromise, wesPromise])
+        // .then((res) => {
+        //     res.forEach((person) => {
+        //         alert(`${person.name}`)
+        //     })
+        // });
+        
+        // async function getData() {
+        //     const lynnPromise = fetch('https://api.github.com/users/lynndz3');
+        //     const wesPromise = fetch('https://api.github.com/users/wesbos');
+
+        //     const [wes , lynn] = await Promise.all([lynnPromise, wesPromise])
+        //         .then(responses => responses.forEach((person) => {
+        //             console.log(person.name);
+        //         })
+        //     )};
+
+        // getData();
+
+  //      let urls = [
+//   'https://api.github.com/users/iliakan',
+//   'https://api.github.com/users/remy',
+//   'https://api.github.com/users/jeresig'
+// ];
+
+// // map every url to the promise of the fetch
+// let requests = urls.map(url => fetch(url));
+
+// // Promise.all waits until all jobs are resolved
+// Promise.all(requests)
+//   .then(responses => responses.forEach(
+//     response => console.log(response.name)
+//     // response => alert(`${response.url}: ${response.status}`)
+//   ));
+
+// function doubleAfter2Seconds(x) {
+//   return new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve(x * 2);
+//     }, 2000);
+//   })
+//   .then(response => console.log(response));
+// };
+
+// async function doubleAfter2Seconds(x) {
+//     await setTimeout(() => {
+//       return x * 2
+//     }, 2000);
+// }
+
+// doubleAfter2Seconds(5).then((r) => console.log(r));
+
+
+function doubleAfter2Seconds(x) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(x * 2);
+    }, 2000);
+  });
+}
+
+async function addPromise(x){
+try {
+  let a = await doubleAfter2Seconds(x);
+  let b = await doubleAfter2Seconds(a);
+  let c = await doubleAfter2Seconds(b);
+  return a + b + c; 
+}
+catch (err) {
+    console.log(err);
+}
+
+};
+
+addPromise().then((sum) => {
+  console.log(sum);
+});
+
+    </script>
+</body>
+</html>

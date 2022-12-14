@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    img, button, input {
+        width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <img id="cat" src="">
+</div> 
+  <script>
+    const catImg = document.querySelector('#cat');
+
+    // fetch('https://api.giphy.com/v1/gifs/translate?api_key=uPDmIhxOnFGaxw5OyJte2lCjscc1pcAu&s=cats', {mode: 'cors'})
+    // .then(function(response) {
+    //     return response.json();
+    // })
+    // .then(function(response) {
+    //     catImg.src = response.data.images.original.url;
+    // });
+
+    async function getCats() {
+        let response = await fetch('https://api.giphy.com/v1/gifs/translate?api_key=uPDmIhxOnFGaxw5OyJte2lCjscc1pcAu&s=cats', {mode: 'cors'});
+        let catData = await response.json();
+        catImg.src = catData.data.images.original.url;
+        };
+
+    getCats();
+
+  </script>
+</body>
+</html>

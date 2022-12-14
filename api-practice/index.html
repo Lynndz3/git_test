@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    img, button, input {
+        width: 500px;
+    }
+  </style>
+</head>
+<body>
+  <!-- <button>Random New GIF</button> -->
+  <img id="random" src="">
+  <label for="searchText">Enter text to search</label>
+  <input type="text" id="searchText" name="searchText" placeholder="cats">
+  <label for="weirdness">Weirdness Scale (1-10)</label>
+  <input type="number" id="weirdness" name="weirdness" placeholder="Enter number from 1 (least weird) to 10 (most weird)" min="1" max="10">
+  <button id="searchButton">Find GIF</button>
+  <img id="searchedImg" src="">
+</div> 
+  <!-- <img id="cat" src="#"> -->
+  <script>
+    const container = document.querySelector('.container');
+    // const catImg = document.querySelector('#cat');
+    // fetch('https://api.giphy.com/v1/gifs/translate?api_key=uPDmIhxOnFGaxw5OyJte2lCjscc1pcAu&s=cats', {mode: 'cors'})
+    // .then(function(response) {
+    //     return response.json();
+    // })
+    // .then(function(response) {
+    //     catImg.src = response.data.images.original.url;
+    // });
+    // const button = document.querySelector('button');
+    // const randomImg = document.querySelector('#random');
+    // button.addEventListener('click', function() {
+    //     randomImg.src = '';
+    //     fetch('https://api.giphy.com/v1/gifs/translate?api_key=uPDmIhxOnFGaxw5OyJte2lCjscc1pcAu&s=cats', {mode: 'cors'})
+    //     .then(function(response) {
+    //         return response.json();
+    //     })
+    //     .then(function(response) {
+    //         console.log(response.data.images);
+    //         randomImg.src = response.data.images.original.url;
+    //     });
+    // });
+
+    const searchButton = document.querySelector('#searchButton');
+    const searchedImg = document.querySelector('#searchedImg');
+
+    searchButton.addEventListener('click', function() {
+        let search = document.querySelector('#searchText').value;
+        let weirdness = document.querySelector('#weirdness').value;
+        let fetchURL = 'https://api.giphy.com/v1/gifs/translate?api_key=uPDmIhxOnFGaxw5OyJte2lCjscc1pcAu&s=' + search + '&weirdness=' + weirdness;
+        searchedImg.src = ''
+        fetch(fetchURL, {mode: 'cors'})
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(response) {
+            console.log(response.data.images);
+            searchedImg.src = response.data.images.original.url;
+        })
+        .catch(function(response) {
+            searchedImg.src = "https://media.giphy.com/media/RIq4nU3TgUQztUhYRr/giphy.gif"; 
+        })
+    })
+  </script>
+</body>
+</html>

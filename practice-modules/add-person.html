@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="personInput">
+    <button id="addPerson">Add Person</button>
+    <ul class="peopleList"></ul>
+
+    <script>
+        (function() {
+            let people = {
+                init: function() {
+                    let result = this.cacheDom();
+                    this.addPerson(result);
+                },
+                cacheDom: function() {
+                    this.button = document.querySelector('#addPerson');
+                    this.personInput = document.querySelector('#personInput');
+                    this.peopleList = document.querySelector('.peopleList');
+                    return 100;
+                },
+                addPerson: function(name) {
+                    // this.button.addEventListener('click', function() {
+                        let li = document.createElement('li');
+                        li.appendChild(document.createTextNode(name));
+                        people.peopleList.appendChild(li);
+                    
+                 }
+
+            }
+            people.init();
+    })();
+
+    </script>
+</body>
+</html>
